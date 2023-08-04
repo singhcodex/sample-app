@@ -1,0 +1,239 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+      <h2 id="jhi-job-heading" data-cy="JobCreateUpdateHeading" jhiTranslate="foreignjobsApp.job.home.createOrEditLabel">
+        Create or edit a Job
+      </h2>
+
+      <div>
+        <jhi-alert-error></jhi-alert-error>
+
+        <div class="mb-3" *ngIf="editForm.controls.id.value !== null">
+          <label class="form-label" jhiTranslate="global.field.id" for="field_id">ID</label>
+          <input type="number" class="form-control" name="id" id="field_id" data-cy="id" formControlName="id" [readonly]="true" />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="foreignjobsApp.job.jobTitle" for="field_jobTitle">Job Title</label>
+          <input type="text" class="form-control" name="jobTitle" id="field_jobTitle" data-cy="jobTitle" formControlName="jobTitle" />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="foreignjobsApp.job.department" for="field_department">Department</label>
+          <input
+            type="text"
+            class="form-control"
+            name="department"
+            id="field_department"
+            data-cy="department"
+            formControlName="department"
+          />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="foreignjobsApp.job.industry" for="field_industry">Industry</label>
+          <input type="text" class="form-control" name="industry" id="field_industry" data-cy="industry" formControlName="industry" />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="foreignjobsApp.job.vacancies" for="field_vacancies">Vacancies</label>
+          <input type="number" class="form-control" name="vacancies" id="field_vacancies" data-cy="vacancies" formControlName="vacancies" />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="foreignjobsApp.job.expiryDate" for="field_expiryDate">Expiry Date</label>
+          <div class="input-group">
+            <input
+              id="field_expiryDate"
+              data-cy="expiryDate"
+              type="text"
+              class="form-control"
+              name="expiryDate"
+              ngbDatepicker
+              #expiryDateDp="ngbDatepicker"
+              formControlName="expiryDate"
+            />
+            <button type="button" class="btn btn-secondary" (click)="expiryDateDp.toggle()"><fa-icon icon="calendar-alt"></fa-icon></button>
+          </div>
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="foreignjobsApp.job.streetAddress" for="field_streetAddress">Street Address</label>
+          <input
+            type="text"
+            class="form-control"
+            name="streetAddress"
+            id="field_streetAddress"
+            data-cy="streetAddress"
+            formControlName="streetAddress"
+          />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="foreignjobsApp.job.postalCode" for="field_postalCode">Postal Code</label>
+          <input
+            type="text"
+            class="form-control"
+            name="postalCode"
+            id="field_postalCode"
+            data-cy="postalCode"
+            formControlName="postalCode"
+          />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="foreignjobsApp.job.city" for="field_city">City</label>
+          <input type="text" class="form-control" name="city" id="field_city" data-cy="city" formControlName="city" />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="foreignjobsApp.job.stateProvince" for="field_stateProvince">State Province</label>
+          <input
+            type="text"
+            class="form-control"
+            name="stateProvince"
+            id="field_stateProvince"
+            data-cy="stateProvince"
+            formControlName="stateProvince"
+          />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="foreignjobsApp.job.country" for="field_country">Country</label>
+          <input type="text" class="form-control" name="country" id="field_country" data-cy="country" formControlName="country" />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="foreignjobsApp.job.jobRequirement" for="field_jobRequirement">Job Requirement</label>
+          <input
+            type="text"
+            class="form-control"
+            name="jobRequirement"
+            id="field_jobRequirement"
+            data-cy="jobRequirement"
+            formControlName="jobRequirement"
+          />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="foreignjobsApp.job.jobResponsibility" for="field_jobResponsibility"
+            >Job Responsibility</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="jobResponsibility"
+            id="field_jobResponsibility"
+            data-cy="jobResponsibility"
+            formControlName="jobResponsibility"
+          />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="foreignjobsApp.job.skills" for="field_skills">Skills</label>
+          <input type="text" class="form-control" name="skills" id="field_skills" data-cy="skills" formControlName="skills" />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="foreignjobsApp.job.language" for="field_language">Language</label>
+          <select class="form-control" name="language" formControlName="language" id="field_language" data-cy="language">
+            <option [ngValue]="null">{{ 'foreignjobsApp.Language.null' | translate }}</option>
+            <option *ngFor="let language of languageValues" [value]="language">
+              {{ 'foreignjobsApp.Language.' + language | translate }}
+            </option>
+          </select>
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="foreignjobsApp.job.minSalary" for="field_minSalary">Min Salary</label>
+          <input type="number" class="form-control" name="minSalary" id="field_minSalary" data-cy="minSalary" formControlName="minSalary" />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="foreignjobsApp.job.maxSalary" for="field_maxSalary">Max Salary</label>
+          <input type="number" class="form-control" name="maxSalary" id="field_maxSalary" data-cy="maxSalary" formControlName="maxSalary" />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="foreignjobsApp.job.workingHours" for="field_workingHours">Working Hours</label>
+          <input
+            type="number"
+            class="form-control"
+            name="workingHours"
+            id="field_workingHours"
+            data-cy="workingHours"
+            formControlName="workingHours"
+          />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="foreignjobsApp.job.benefits" for="field_benefits">Benefits</label>
+          <input type="text" class="form-control" name="benefits" id="field_benefits" data-cy="benefits" formControlName="benefits" />
+        </div>
+
+        <div class="mb-3">
+          <label jhiTranslate="foreignjobsApp.job.task" for="field_tasks">Task</label>
+          <select
+            class="form-control"
+            id="field_tasks"
+            data-cy="task"
+            multiple
+            name="tasks"
+            formControlName="tasks"
+            [compareWith]="compareTask"
+          >
+            <option [ngValue]="taskOption" *ngFor="let taskOption of tasksSharedCollection">{{ taskOption.title }}</option>
+          </select>
+        </div>
+
+        <div class="mb-3">
+          <label jhiTranslate="foreignjobsApp.job.applicant" for="field_applicants">Applicant</label>
+          <select
+            class="form-control"
+            id="field_applicants"
+            data-cy="applicant"
+            multiple
+            name="applicants"
+            formControlName="applicants"
+            [compareWith]="compareApplicant"
+          >
+            <option [ngValue]="applicantOption" *ngFor="let applicantOption of applicantsSharedCollection">
+              {{ applicantOption.email }}
+            </option>
+          </select>
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="foreignjobsApp.job.company" for="field_company">Company</label>
+          <select
+            class="form-control"
+            id="field_company"
+            data-cy="company"
+            name="company"
+            formControlName="company"
+            [compareWith]="compareCompany"
+          >
+            <option [ngValue]="null"></option>
+            <option [ngValue]="companyOption" *ngFor="let companyOption of companiesSharedCollection">{{ companyOption.id }}</option>
+          </select>
+        </div>
+      </div>
+
+      <div>
+        <button type="button" id="cancel-save" data-cy="entityCreateCancelButton" class="btn btn-secondary" (click)="previousState()">
+          <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+        </button>
+
+        <button
+          type="submit"
+          id="save-entity"
+          data-cy="entityCreateSaveButton"
+          [disabled]="editForm.invalid || isSaving"
+          class="btn btn-primary"
+        >
+          <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

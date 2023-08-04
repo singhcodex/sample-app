@@ -1,0 +1,26 @@
+{
+  "foreignjobsApp": {
+    "region": {
+      "home": {
+        "title": "Regions",
+        "refreshListLabel": "Liste aktualisieren",
+        "createLabel": "Region erstellen",
+        "createOrEditLabel": "Region erstellen oder bearbeiten",
+        "search": "Suche nach Region",
+        "notFound": "Keine Regions gefunden"
+      },
+      "created": "Region erstellt mit ID {{ param }}",
+      "updated": "Region aktualisiert mit ID {{ param }}",
+      "deleted": "Region gelöscht mit ID {{ param }}",
+      "delete": {
+        "question": "Soll Region {{ id }} wirklich dauerhaft gelöscht werden?"
+      },
+      "detail": {
+        "title": "Region"
+      },
+      "id": "ID",
+      "regionName": "Region Name",
+      "country": "Country"
+    }
+  }
+}

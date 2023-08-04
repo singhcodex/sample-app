@@ -1,0 +1,45 @@
+{
+  "foreignjobsApp": {
+    "job": {
+      "home": {
+        "title": "Jobs",
+        "refreshListLabel": "Actualiser la liste",
+        "createLabel": "Créer un nouveau Job",
+        "createOrEditLabel": "Créer ou éditer un Job",
+        "search": "Recherche pour Job",
+        "notFound": "Aucun Job trouvé"
+      },
+      "created": "Un nouveau Job a été créé avec l'identifiant {{ param }}",
+      "updated": "Le Job avec l'identifiant {{ param }} a été mis à jour",
+      "deleted": "Le Job avec l'identifiant {{ param }} a été supprimé",
+      "delete": {
+        "question": "Êtes-vous certain de vouloir supprimer le Job {{ id }} ?"
+      },
+      "detail": {
+        "title": "Job"
+      },
+      "id": "ID",
+      "jobTitle": "Job Title",
+      "department": "Department",
+      "industry": "Industry",
+      "vacancies": "Vacancies",
+      "expiryDate": "Expiry Date",
+      "streetAddress": "Street Address",
+      "postalCode": "Postal Code",
+      "city": "City",
+      "stateProvince": "State Province",
+      "country": "Country",
+      "jobRequirement": "Job Requirement",
+      "jobResponsibility": "Job Responsibility",
+      "skills": "Skills",
+      "language": "Language",
+      "minSalary": "Min Salary",
+      "maxSalary": "Max Salary",
+      "workingHours": "Working Hours",
+      "benefits": "Benefits",
+      "task": "Task",
+      "applicant": "Applicant",
+      "company": "Company"
+    }
+  }
+}

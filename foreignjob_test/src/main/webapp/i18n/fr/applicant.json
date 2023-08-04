@@ -1,0 +1,41 @@
+{
+  "foreignjobsApp": {
+    "applicant": {
+      "home": {
+        "title": "Applicants",
+        "refreshListLabel": "Actualiser la liste",
+        "createLabel": "Créer un nouveau Applicant",
+        "createOrEditLabel": "Créer ou éditer un Applicant",
+        "search": "Recherche pour Applicant",
+        "notFound": "Aucun Applicant trouvé"
+      },
+      "created": "Un nouveau Applicant a été créé avec l'identifiant {{ param }}",
+      "updated": "Le Applicant avec l'identifiant {{ param }} a été mis à jour",
+      "deleted": "Le Applicant avec l'identifiant {{ param }} a été supprimé",
+      "delete": {
+        "question": "Êtes-vous certain de vouloir supprimer le Applicant {{ id }} ?"
+      },
+      "detail": {
+        "title": "Applicant"
+      },
+      "id": "ID",
+      "firstName": "First Name",
+      "lastName": "Last Name",
+      "email": "Email",
+      "phoneNumber": "Phone Number",
+      "streetAddress": "Street Address",
+      "postalCode": "Postal Code",
+      "city": "City",
+      "stateProvince": "State Province",
+      "country": "Country",
+      "education": "Education",
+      "skills": "Skills",
+      "resume": "Resume",
+      "user": "User",
+      "job": "Job",
+      "help": {
+        "firstName": "The firstname attribute."
+      }
+    }
+  }
+}

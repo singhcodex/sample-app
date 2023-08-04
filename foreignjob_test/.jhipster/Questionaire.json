@@ -1,0 +1,23 @@
+{
+  "applications": "*",
+  "changelogDate": "20230804140259",
+  "dto": "mapstruct",
+  "entityTableName": "questionaire",
+  "fields": [
+    {
+      "fieldName": "questTitle",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "options",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "correctOption",
+      "fieldType": "String"
+    }
+  ],
+  "name": "Questionaire",
+  "relationships": [],
+  "service": "serviceImpl"
+}

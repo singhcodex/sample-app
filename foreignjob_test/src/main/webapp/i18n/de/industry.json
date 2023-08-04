@@ -1,0 +1,26 @@
+{
+  "foreignjobsApp": {
+    "industry": {
+      "home": {
+        "title": "Industries",
+        "refreshListLabel": "Liste aktualisieren",
+        "createLabel": "Industry erstellen",
+        "createOrEditLabel": "Industry erstellen oder bearbeiten",
+        "search": "Suche nach Industry",
+        "notFound": "Keine Industries gefunden"
+      },
+      "created": "Industry erstellt mit ID {{ param }}",
+      "updated": "Industry aktualisiert mit ID {{ param }}",
+      "deleted": "Industry gelöscht mit ID {{ param }}",
+      "delete": {
+        "question": "Soll Industry {{ id }} wirklich dauerhaft gelöscht werden?"
+      },
+      "detail": {
+        "title": "Industry"
+      },
+      "id": "ID",
+      "industryName": "Industry Name",
+      "department": "Department"
+    }
+  }
+}

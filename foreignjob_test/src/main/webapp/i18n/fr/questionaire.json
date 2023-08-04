@@ -1,0 +1,28 @@
+{
+  "foreignjobsApp": {
+    "questionaire": {
+      "home": {
+        "title": "Questionaires",
+        "refreshListLabel": "Actualiser la liste",
+        "createLabel": "Créer un nouveau Questionaire",
+        "createOrEditLabel": "Créer ou éditer un Questionaire",
+        "search": "Recherche pour Questionaire",
+        "notFound": "Aucun Questionaire trouvé"
+      },
+      "created": "Un nouveau Questionaire a été créé avec l'identifiant {{ param }}",
+      "updated": "Le Questionaire avec l'identifiant {{ param }} a été mis à jour",
+      "deleted": "Le Questionaire avec l'identifiant {{ param }} a été supprimé",
+      "delete": {
+        "question": "Êtes-vous certain de vouloir supprimer le Questionaire {{ id }} ?"
+      },
+      "detail": {
+        "title": "Questionaire"
+      },
+      "id": "ID",
+      "questTitle": "Quest Title",
+      "options": "Options",
+      "correctOption": "Correct Option",
+      "task": "Task"
+    }
+  }
+}

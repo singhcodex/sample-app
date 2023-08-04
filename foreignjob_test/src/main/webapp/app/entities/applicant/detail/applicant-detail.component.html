@@ -1,0 +1,87 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <div *ngIf="applicant">
+      <h2 data-cy="applicantDetailsHeading"><span jhiTranslate="foreignjobsApp.applicant.detail.title">Applicant</span></h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="global.field.id">ID</span></dt>
+        <dd>
+          <span>{{ applicant.id }}</span>
+        </dd>
+        <dt>
+          <span jhiTranslate="foreignjobsApp.applicant.firstName" [ngbTooltip]="'foreignjobsApp.applicant.help.firstName' | translate"
+            >First Name</span
+          >
+        </dt>
+        <dd>
+          <span>{{ applicant.firstName }}</span>
+        </dd>
+        <dt><span jhiTranslate="foreignjobsApp.applicant.lastName">Last Name</span></dt>
+        <dd>
+          <span>{{ applicant.lastName }}</span>
+        </dd>
+        <dt><span jhiTranslate="foreignjobsApp.applicant.email">Email</span></dt>
+        <dd>
+          <span>{{ applicant.email }}</span>
+        </dd>
+        <dt><span jhiTranslate="foreignjobsApp.applicant.phoneNumber">Phone Number</span></dt>
+        <dd>
+          <span>{{ applicant.phoneNumber }}</span>
+        </dd>
+        <dt><span jhiTranslate="foreignjobsApp.applicant.streetAddress">Street Address</span></dt>
+        <dd>
+          <span>{{ applicant.streetAddress }}</span>
+        </dd>
+        <dt><span jhiTranslate="foreignjobsApp.applicant.postalCode">Postal Code</span></dt>
+        <dd>
+          <span>{{ applicant.postalCode }}</span>
+        </dd>
+        <dt><span jhiTranslate="foreignjobsApp.applicant.city">City</span></dt>
+        <dd>
+          <span>{{ applicant.city }}</span>
+        </dd>
+        <dt><span jhiTranslate="foreignjobsApp.applicant.stateProvince">State Province</span></dt>
+        <dd>
+          <span>{{ applicant.stateProvince }}</span>
+        </dd>
+        <dt><span jhiTranslate="foreignjobsApp.applicant.country">Country</span></dt>
+        <dd>
+          <span>{{ applicant.country }}</span>
+        </dd>
+        <dt><span jhiTranslate="foreignjobsApp.applicant.education">Education</span></dt>
+        <dd>
+          <span>{{ applicant.education }}</span>
+        </dd>
+        <dt><span jhiTranslate="foreignjobsApp.applicant.skills">Skills</span></dt>
+        <dd>
+          <span>{{ applicant.skills }}</span>
+        </dd>
+        <dt><span jhiTranslate="foreignjobsApp.applicant.resume">Resume</span></dt>
+        <dd>
+          <div *ngIf="applicant.resume">
+            <a (click)="openFile(applicant.resume, applicant.resumeContentType)" jhiTranslate="entity.action.open">Open</a>
+            {{ applicant.resumeContentType }}, {{ byteSize(applicant.resume) }}
+          </div>
+        </dd>
+        <dt><span jhiTranslate="foreignjobsApp.applicant.user">User</span></dt>
+        <dd>
+          <span>{{ applicant.user?.id }}</span>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/applicant', applicant.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+      </button>
+    </div>
+  </div>
+</div>
