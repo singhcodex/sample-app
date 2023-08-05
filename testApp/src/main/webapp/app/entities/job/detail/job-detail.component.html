@@ -1,0 +1,120 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <div *ngIf="job">
+      <h2 data-cy="jobDetailsHeading"><span jhiTranslate="foreignjobsApp.job.detail.title">Job</span></h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="global.field.id">ID</span></dt>
+        <dd>
+          <span>{{ job.id }}</span>
+        </dd>
+        <dt><span jhiTranslate="foreignjobsApp.job.jobTitle">Job Title</span></dt>
+        <dd>
+          <span>{{ job.jobTitle }}</span>
+        </dd>
+        <dt><span jhiTranslate="foreignjobsApp.job.department">Department</span></dt>
+        <dd>
+          <span>{{ job.department }}</span>
+        </dd>
+        <dt><span jhiTranslate="foreignjobsApp.job.industry">Industry</span></dt>
+        <dd>
+          <span>{{ job.industry }}</span>
+        </dd>
+        <dt><span jhiTranslate="foreignjobsApp.job.vacancies">Vacancies</span></dt>
+        <dd>
+          <span>{{ job.vacancies }}</span>
+        </dd>
+        <dt><span jhiTranslate="foreignjobsApp.job.expiryDate">Expiry Date</span></dt>
+        <dd>
+          <span>{{ job.expiryDate | formatMediumDate }}</span>
+        </dd>
+        <dt><span jhiTranslate="foreignjobsApp.job.streetAddress">Street Address</span></dt>
+        <dd>
+          <span>{{ job.streetAddress }}</span>
+        </dd>
+        <dt><span jhiTranslate="foreignjobsApp.job.postalCode">Postal Code</span></dt>
+        <dd>
+          <span>{{ job.postalCode }}</span>
+        </dd>
+        <dt><span jhiTranslate="foreignjobsApp.job.city">City</span></dt>
+        <dd>
+          <span>{{ job.city }}</span>
+        </dd>
+        <dt><span jhiTranslate="foreignjobsApp.job.stateProvince">State Province</span></dt>
+        <dd>
+          <span>{{ job.stateProvince }}</span>
+        </dd>
+        <dt><span jhiTranslate="foreignjobsApp.job.country">Country</span></dt>
+        <dd>
+          <span>{{ job.country }}</span>
+        </dd>
+        <dt><span jhiTranslate="foreignjobsApp.job.jobRequirement">Job Requirement</span></dt>
+        <dd>
+          <span>{{ job.jobRequirement }}</span>
+        </dd>
+        <dt><span jhiTranslate="foreignjobsApp.job.jobResponsibility">Job Responsibility</span></dt>
+        <dd>
+          <span>{{ job.jobResponsibility }}</span>
+        </dd>
+        <dt><span jhiTranslate="foreignjobsApp.job.skills">Skills</span></dt>
+        <dd>
+          <span>{{ job.skills }}</span>
+        </dd>
+        <dt><span jhiTranslate="foreignjobsApp.job.language">Language</span></dt>
+        <dd>
+          <span jhiTranslate="{{ 'foreignjobsApp.Language.' + job.language }}">{{ job.language }}</span>
+        </dd>
+        <dt><span jhiTranslate="foreignjobsApp.job.minSalary">Min Salary</span></dt>
+        <dd>
+          <span>{{ job.minSalary }}</span>
+        </dd>
+        <dt><span jhiTranslate="foreignjobsApp.job.maxSalary">Max Salary</span></dt>
+        <dd>
+          <span>{{ job.maxSalary }}</span>
+        </dd>
+        <dt><span jhiTranslate="foreignjobsApp.job.workingHours">Working Hours</span></dt>
+        <dd>
+          <span>{{ job.workingHours }}</span>
+        </dd>
+        <dt><span jhiTranslate="foreignjobsApp.job.benefits">Benefits</span></dt>
+        <dd>
+          <span>{{ job.benefits }}</span>
+        </dd>
+        <dt><span jhiTranslate="foreignjobsApp.job.task">Task</span></dt>
+        <dd>
+          <span *ngFor="let task of job.tasks; let last = last">
+            <a [routerLink]="['/task', task.id, 'view']">{{ task.title }}</a
+            >{{ last ? '' : ', ' }}
+          </span>
+        </dd>
+        <dt><span jhiTranslate="foreignjobsApp.job.applicant">Applicant</span></dt>
+        <dd>
+          <span *ngFor="let applicant of job.applicants; let last = last">
+            <a [routerLink]="['/applicant', applicant.id, 'view']">{{ applicant.email }}</a
+            >{{ last ? '' : ', ' }}
+          </span>
+        </dd>
+        <dt><span jhiTranslate="foreignjobsApp.job.company">Company</span></dt>
+        <dd>
+          <div *ngIf="job.company">
+            <a [routerLink]="['/company', job.company.id, 'view']">{{ job.company.id }}</a>
+          </div>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/job', job.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+      </button>
+    </div>
+  </div>
+</div>

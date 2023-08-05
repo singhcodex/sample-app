@@ -1,0 +1,108 @@
+/**
+ * Task entity.
+ * @author The JHipster team.
+ */
+entity Task {
+	title String
+	description String
+    duration Long
+    marks Long
+}
+
+entity Questionaire {
+	questTitle String
+    options String
+    correctOption String
+}
+
+/**
+ * The Applicant entity.
+ */
+entity Applicant {
+	/**
+	* The firstname attribute.
+	*/
+	firstName String
+	lastName String
+	email String
+	phoneNumber String
+	streetAddress String
+    postalCode String
+    city String
+    stateProvince String
+    country String
+    education String
+    skills String
+    resume Blob
+}
+
+entity Company {
+	companyName String
+    description String
+    contact String
+    email String
+    streetAddress String
+    postalCode String
+    city String
+    stateProvince String
+    country String
+    industry String
+    employeesCount Long
+}
+
+entity Job {
+	jobTitle String
+    department String
+    industry String
+    vacancies Long
+    expiryDate LocalDate
+    streetAddress String
+    postalCode String
+    city String
+    stateProvince String
+    country String
+    jobRequirement String
+    jobResponsibility String
+    skills String
+    language Language
+	minSalary Long
+	maxSalary Long
+    workingHours Double
+    benefits String
+}
+
+enum Language {
+    FRENCH, ENGLISH, SPANISH, DEUTSCH
+}
+
+relationship ManyToMany {
+	Job{task(title)} to Task{job}
+    Job{applicant(email)} to Applicant{job(jobTitle)}
+}
+
+// defining multiple OneToMany relationships with comments
+relationship OneToMany {
+    Company{jobs} to Job
+    Task{questionaire} to Questionaire
+}
+
+
+// defining multiple oneToOne relationships
+relationship OneToOne {
+    Applicant to User with builtInEntity
+    Company to User with builtInEntity
+
+}
+
+// Set pagination options
+paginate Company, Applicant with pagination
+paginate Job with pagination
+
+// Use Data Transfer Objects (DTO)
+dto * with mapstruct
+
+// Set service options to all except few
+service * with serviceClass
+
+// Set an angular suffix
+// angularSuffix * with mySuffix

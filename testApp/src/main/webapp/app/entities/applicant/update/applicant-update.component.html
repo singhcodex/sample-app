@@ -1,0 +1,168 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+      <h2 id="jhi-applicant-heading" data-cy="ApplicantCreateUpdateHeading" jhiTranslate="foreignjobsApp.applicant.home.createOrEditLabel">
+        Create or edit a Applicant
+      </h2>
+
+      <div>
+        <jhi-alert-error></jhi-alert-error>
+
+        <div class="mb-3" *ngIf="editForm.controls.id.value !== null">
+          <label class="form-label" jhiTranslate="global.field.id" for="field_id">ID</label>
+          <input type="number" class="form-control" name="id" id="field_id" data-cy="id" formControlName="id" [readonly]="true" />
+        </div>
+
+        <div class="mb-3">
+          <label
+            class="form-label"
+            jhiTranslate="foreignjobsApp.applicant.firstName"
+            for="field_firstName"
+            [ngbTooltip]="'foreignjobsApp.applicant.help.firstName' | translate"
+            >First Name</label
+          >
+          <input type="text" class="form-control" name="firstName" id="field_firstName" data-cy="firstName" formControlName="firstName" />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="foreignjobsApp.applicant.lastName" for="field_lastName">Last Name</label>
+          <input type="text" class="form-control" name="lastName" id="field_lastName" data-cy="lastName" formControlName="lastName" />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="foreignjobsApp.applicant.email" for="field_email">Email</label>
+          <input type="text" class="form-control" name="email" id="field_email" data-cy="email" formControlName="email" />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="foreignjobsApp.applicant.phoneNumber" for="field_phoneNumber">Phone Number</label>
+          <input
+            type="text"
+            class="form-control"
+            name="phoneNumber"
+            id="field_phoneNumber"
+            data-cy="phoneNumber"
+            formControlName="phoneNumber"
+          />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="foreignjobsApp.applicant.streetAddress" for="field_streetAddress">Street Address</label>
+          <input
+            type="text"
+            class="form-control"
+            name="streetAddress"
+            id="field_streetAddress"
+            data-cy="streetAddress"
+            formControlName="streetAddress"
+          />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="foreignjobsApp.applicant.postalCode" for="field_postalCode">Postal Code</label>
+          <input
+            type="text"
+            class="form-control"
+            name="postalCode"
+            id="field_postalCode"
+            data-cy="postalCode"
+            formControlName="postalCode"
+          />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="foreignjobsApp.applicant.city" for="field_city">City</label>
+          <input type="text" class="form-control" name="city" id="field_city" data-cy="city" formControlName="city" />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="foreignjobsApp.applicant.stateProvince" for="field_stateProvince">State Province</label>
+          <input
+            type="text"
+            class="form-control"
+            name="stateProvince"
+            id="field_stateProvince"
+            data-cy="stateProvince"
+            formControlName="stateProvince"
+          />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="foreignjobsApp.applicant.country" for="field_country">Country</label>
+          <input type="text" class="form-control" name="country" id="field_country" data-cy="country" formControlName="country" />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="foreignjobsApp.applicant.education" for="field_education">Education</label>
+          <input type="text" class="form-control" name="education" id="field_education" data-cy="education" formControlName="education" />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="foreignjobsApp.applicant.skills" for="field_skills">Skills</label>
+          <input type="text" class="form-control" name="skills" id="field_skills" data-cy="skills" formControlName="skills" />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="foreignjobsApp.applicant.resume" for="field_resume">Resume</label>
+          <div>
+            <div *ngIf="editForm.get('resume')!.value" class="form-text text-danger clearfix">
+              <a
+                class="pull-start"
+                (click)="openFile(editForm.get('resume')!.value!, editForm.get('resumeContentType')!.value!)"
+                jhiTranslate="entity.action.open"
+                >Open</a
+              ><br />
+              <span class="pull-start">{{ editForm.get('resumeContentType')!.value }}, {{ byteSize(editForm.get('resume')!.value!) }}</span>
+              <button
+                type="button"
+                (click)="editForm.patchValue({ resume: undefined, resumeContentType: undefined })"
+                class="btn btn-secondary btn-xs pull-end"
+              >
+                <fa-icon icon="times"></fa-icon>
+              </button>
+            </div>
+            <input
+              type="file"
+              id="file_resume"
+              data-cy="resume"
+              (change)="setFileData($event, 'resume', false)"
+              jhiTranslate="entity.action.addblob"
+            />
+          </div>
+          <input type="hidden" class="form-control" name="resume" id="field_resume" data-cy="resume" formControlName="resume" />
+          <input
+            type="hidden"
+            class="form-control"
+            name="resumeContentType"
+            id="field_resumeContentType"
+            formControlName="resumeContentType"
+          />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="foreignjobsApp.applicant.user" for="field_user">User</label>
+          <select class="form-control" id="field_user" data-cy="user" name="user" formControlName="user" [compareWith]="compareUser">
+            <option [ngValue]="null"></option>
+            <option [ngValue]="userOption" *ngFor="let userOption of usersSharedCollection">{{ userOption.id }}</option>
+          </select>
+        </div>
+      </div>
+
+      <div>
+        <button type="button" id="cancel-save" data-cy="entityCreateCancelButton" class="btn btn-secondary" (click)="previousState()">
+          <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+        </button>
+
+        <button
+          type="submit"
+          id="save-entity"
+          data-cy="entityCreateSaveButton"
+          [disabled]="editForm.invalid || isSaving"
+          class="btn btn-primary"
+        >
+          <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+        </button>
+      </div>
+    </form>
+  </div>
+</div>
